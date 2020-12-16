@@ -15,13 +15,13 @@ function App() {
       })
   }, [])
 
-
   return (
     <div className="App">
       {
         driver && 
           <div>
             <h1>{driver?.name}</h1>
+            <iframe src={`${driver?.insta}embed`} width="400" height="480" scrolling="no" ></iframe>
           </div>
       }
     </div>
