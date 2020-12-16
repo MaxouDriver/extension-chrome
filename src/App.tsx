@@ -1,23 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Driver } from "./models/driver"
 import './App.css';
 
 function App() {
+  const [driver, setDriver] = useState<Driver>()
 
   useEffect(() => {
     if (chrome && chrome.tabs)
       chrome.tabs.query({currentWindow: true, active:true}, tabs => {
-        console.log("tabs", tabs)
         const tab = tabs[0];
         chrome.tabs.sendMessage(tab.id || 0, {from: "popup", subject: "getFullName"}, response => {
-          console.log("response", response)
+          setDriver(response)
         })
       })
-  })
+  }, [])
 
 
   return (
     <div className="App">
-      Hello wolrd
+      {
+        driver && 
+          <div>
+            <h1>{driver?.name}</h1>
+          </div>
+      }
     </div>
   );
 }

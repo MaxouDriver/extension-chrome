@@ -1,11 +1,10 @@
+
 async function getProfileInfo(): Promise<any> {
-  const fullName = document.querySelectorAll("#post-278 > div > div.drivers-area008 > div > p")[0];
+  const name = document.querySelectorAll("#post-278 > div > div.drivers-area008 > div > p")[0];
   
-  
-  const response = {
-    fullName: fullName.textContent.replace(/\n/, "").trim(),
-    title: "driver",
-  };
+  const response:any = {
+    name: name.textContent.replace(/\n/, "").trim(),
+  } ;
 
   return response;
 }
