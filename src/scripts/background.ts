@@ -4,7 +4,7 @@ chrome.runtime.onInstalled.addListener(() => {
         {
           conditions: [
             new chrome.declarativeContent.PageStateMatcher({
-              pageUrl: { hostContains: "linkedin.com", urlContains: "/in/", schemes: ["https"] }
+              pageUrl: { hostContains: "formulad.jp", urlContains: "/drivers/", schemes: ["https"] }
             })
           ],
           actions: [new chrome.declarativeContent.ShowPageAction()]

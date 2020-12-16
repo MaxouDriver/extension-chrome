@@ -1,11 +1,10 @@
 async function getProfileInfo(): Promise<any> {
-  const fullName = document.getElementsByClassName("inline t-24 t-black t-normal break-words")[0];
-  const title = document.querySelectorAll(".pv-top-card h2.mt1")[0];
-
+  const fullName = document.querySelectorAll("#post-278 > div > div.drivers-area008 > div > p")[0];
+  
+  
   const response = {
     fullName: fullName.textContent.replace(/\n/, "").trim(),
-    title: title.textContent.replace(/\n/, "").trim(),
-    country: "XXX"
+    title: "driver",
   };
 
   return response;
@@ -14,16 +13,14 @@ async function getProfileInfo(): Promise<any> {
 let profile: any = null;
 
 setTimeout(() => {
-  getProfileInfo().then(result => {
-    profile = result || profile;
-  });
-}, 6000);
+  getProfileInfo().then(data => profile = data|| profile)
+}, 5000);
 
 chrome.runtime.onMessage.addListener(async (msg, sender, response) => {  
   if (msg.from === "popup" && msg.subject === "getFullName") {
     response(profile);
   } else {
-    response('hey')
+    response('no response available')
   }
   return true;
 });

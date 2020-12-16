@@ -13,7 +13,7 @@
 "activeTab",
 "background",
 "declarativeContent",
-"https://www.linkedin.com/in/*"
+"https://formulad.jp/drivers/dr008/*"
   ],
 "browser_action": {
         "default_icon": "logo512.png",
@@ -24,8 +24,8 @@
     },
     "content_scripts": [
       {
-        "matches": ["*://*.linkedin.com/in/*"],
-        "js": ["js/linkedin.js"],
+        "matches": ["*://formulad.jp/drivers/dr008/*"],
+        "js": ["js/formulad.js"],
         "run_at": "document_start"
       }
     ]
